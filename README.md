@@ -93,10 +93,45 @@ name first, so its contents don't depend on which parallel branch finished first
 
 ## Example run
 
-<!-- EXAMPLE-RUNS: replace with real output from `uv run run.py` -->
+Real output from `uv run run.py` (OpenAI `gpt-4.1-mini`). Here the model read Harbor's
+"Amount due" correctly on the first pass, so only Ridgeway went through the repair loop.
 
 ```text
-(paste output of: uv run run.py)
+$ uv run run.py
+run run-58d055a7: processing inbox/ (resume with --resume run-58d055a7 if it stops)
+
+── load_inbox
+  delivery-note-5512.txt             extract     not an invoice
+  delivery-note-5512.txt             reject      rejected (not an invoice)
+  alpine-cloud-AC-0099.txt           extract     Alpine Cloud GmbH | AC-0099 | 2 lines | 1,433.36 EUR
+  alpine-cloud-AC-0099.txt           validate    valid
+  alpine-cloud-AC-0099.txt           accept      accepted
+  northwind-INV-1043.txt             extract     NORTHWIND OFFICE SUPPLY | INV-1043 | 3 lines | 1,274.40 USD
+  northwind-INV-1043.txt             validate    valid
+  northwind-INV-1043.txt             accept      accepted
+  ridgeway-RL-2207.txt               extract     RIDGEWAY LOGISTICS | RL-2207 | 3 lines | 2,475.00 EUR
+  ridgeway-RL-2207.txt               validate    1 failed: line items sum to 2,150.00 but subtotal is 2,250.00
+  harbor-print-7781.txt              extract     Harbor Print Co. | 7781 | 2 lines | 768.00 GBP
+  harbor-print-7781.txt              validate    valid
+  harbor-print-7781.txt              accept      accepted
+  reminder-northwind-INV-1043.txt    extract     NORTHWIND OFFICE SUPPLY | INV-1043 | 3 lines | 1,274.40 USD
+  reminder-northwind-INV-1043.txt    validate    valid
+  reminder-northwind-INV-1043.txt    accept      accepted
+  ridgeway-RL-2207.txt               repair      attempt 1, changed=False: RIDGEWAY LOGISTICS | RL-2207 | 3 lines | 2,475.00 EUR
+  ridgeway-RL-2207.txt               quarantine  quarantined (repair returned the same values: inconsistent as printed)
+── build_report
+
+══ report [run-58d055a7]
+  alpine-cloud-AC-0099.txt           accepted     repairs=0  AC-0099  1,433.36 EUR
+  delivery-note-5512.txt             rejected     repairs=0  
+                                     └ not an invoice
+  harbor-print-7781.txt              accepted     repairs=0  7781  768.00 GBP
+  northwind-INV-1043.txt             accepted     repairs=0  INV-1043  1,274.40 USD
+  reminder-northwind-INV-1043.txt    quarantined  repairs=0  INV-1043  1,274.40 USD
+                                     └ duplicate of northwind-INV-1043.txt
+  ridgeway-RL-2207.txt               quarantined  repairs=1  RL-2207  2,475.00 EUR
+                                     └ line items sum to 2,150.00 but subtotal is 2,250.00; repair returned the same values: inconsistent as printed
+  counts: {'accepted': 3, 'rejected': 1, 'quarantined': 2}   accepted totals: {'EUR': 1433.36, 'GBP': 768.0, 'USD': 1274.4}
 ```
 
 Lines from different documents interleave in the output because they really are processed
