@@ -1,0 +1,12 @@
+Alpine Cloud GmbH · Bahnhofstraße 7 · 80335 München
+
+Rechnung / Invoice AC-0099
+Datum: 03.10.2026
+
+Pos.  Leistung                 Menge   Einzelpreis    Betrag
+1     Compute instances            1    1.000,00 €   1.000,00 €
+2     Object storage               1      204,50 €     204,50 €
+
+Nettobetrag                                          1.204,50 €
+USt. 19 %                                              228,86 €
+Gesamtbetrag                                         1.433,36 €

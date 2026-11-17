@@ -1,0 +1,10 @@
+RIDGEWAY LOGISTICS
+Invoice RL-2207 — issued 2026-10-09 — currency: EUR
+
+  Freight Lyon to Turin        1 x 1,450.00    1,450.00
+  Fuel surcharge               1 x   300.00      300.00
+  Handling (pallets)           4 x   100.00      400.00
+
+  Subtotal                                     2,250.00
+  VAT 10%                                        225.00
+  TOTAL                                        2,475.00

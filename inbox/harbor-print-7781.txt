@@ -1,0 +1,13 @@
+Harbor Print Co. | 2 Quay Street, Bristol
+
+Invoice no: 7781        Date: 14 Oct 2026
+Customer: Acme Analytics Ltd
+
+Brochure print run, 1 job at £520.00 ............ £520.00
+Business cards, 4 packs at £30.00 ................ £120.00
+
+Net amount                                         £640.00
+VAT @ 20%                                          £128.00
+Amount due                                         £768.00
+
+Please pay by bank transfer within 14 days.

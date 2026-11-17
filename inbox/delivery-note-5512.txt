@@ -1,0 +1,11 @@
+NORTHWIND OFFICE SUPPLY
+DELIVERY NOTE DN-5512
+
+Delivered to: Acme Analytics Ltd, 2026-10-03
+Reference: order PO-3391
+
+  40 boxes printer paper A4
+   4 toner cartridges
+   5 desk organisers
+
+Received by: ____________   Condition on arrival: ____________
